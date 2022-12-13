@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>register</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Template Main CSS Files --> 
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+   
+</head>
+<section class="vh-100 bg-image"
+  style="background-image: url('https://i.pinimg.com/236x/a6/02/61/a602616ff602cb0539969b4f3e2d77b5.jpg');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">You are logged out</h2>
+              <form method="POST">
+                <div class="d-flex justify-content-center">
+                <p class="text-center text-muted mt-5 mb-0"><a href="{% url 'login' %}"
+                    class="fw-bold text-body"><u>Login here!</u></a></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</html>
