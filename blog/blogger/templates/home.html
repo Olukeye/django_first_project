@@ -46,7 +46,7 @@
         <ul>
           <li><a href="{% url 'home' %}">Blog</a></li>
           {%if user.is_authenticated  %}
-          <li><a href="single-post.html">Single Post</a></li>
+          {% comment %} <li><a href="{% url 'single-post' %}">Single Post</a></li> {% endcomment %}
           {% comment %} <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="search-result.html">Search Result</a></li>
@@ -162,10 +162,10 @@
               {% for posts in posts reversed %}
               <a href="single-post.html"><img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid"></a>
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{posts.created_at}}</span></div>
-              <h2><a href="single-post.html">{{posts.title}}</a></h2>
+              <h2><a href="{% url 'post-detail' posts.id %}">{{posts.title}}</a></h2>
               <p class="mb-4 d-block">{{posts.content | truncatewords:15}}</p>
               <div class="d-flex align-items-center author">
-                <div class="photo"><img src="assets/img/person-1.jpg" alt="" class="img-fluid"></div>
+                <div class="photo"><img src="{{posts.author.profile.image.url}}" alt="" class="img-fluid"></div>
                 <div class="name">
                   <h3 class="m-0 p-0">Author: {{posts.author}}</h3>
                 </div>
