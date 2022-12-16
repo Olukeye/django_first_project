@@ -6,13 +6,13 @@ from .models import Blog
 
 def home(request):
     posts = Blog.objects.all()
-    return render(request, 'home.html', {'posts': posts})
+    return render(request, 'blog/home.html', {'posts': posts})
 
 
 # this class function is for list of post which inherit from Blog model
 class PostListView(ListView):
     model = Blog
-    template_name = 'home.html'
+    template_name = 'blog/home.html'
     context_object_name = 'posts'
 
 class PostDetailView(DetailView):
@@ -20,7 +20,7 @@ class PostDetailView(DetailView):
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'blog/about.html')
 
 
 def contact(request):
