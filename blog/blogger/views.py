@@ -5,26 +5,29 @@ from .models import Blog
 
 
 def home(request):
-    posts = Blog.objects.all()
-    return render(request, 'blog/home.html', {'posts': posts})
+    context = {
+        'posts': Blog.objects.all()
+    }
+    return render(request, 'blogger/home.html', context)
 
 
 # this class function is for list of post which inherit from Blog model
-class PostListView(ListView):
+class BlogListView(ListView):
     model = Blog
-    template_name = 'blog/home.html'
+    template_name = 'blogger/home.html'
     context_object_name = 'posts'
+    paginate_by = 5
 
-class PostDetailView(DetailView):
+class BlogDetailView(DetailView):
     model = Blog
 
 
 def about(request):
-    return render(request, 'blog/about.html')
+    return render(request, 'blogger/about.html')
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    return render(request, 'blogger/contact.html')
 
 
 # def singleblog(request, pk):
