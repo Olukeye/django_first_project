@@ -1,5 +1,4 @@
 {% load static %}
-{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +23,6 @@
    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
    
 </head>
-<main id="main">
 <header id="header" class="header d-flex align-items-center fixed-top">
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
@@ -61,10 +59,10 @@
       </div><!-- End Search Form -->
 
     </div>
-
   </div>
 
 </header><!-- End Header -->
+<main id="main">
 <section class="vh-100 bg-image" 
   style="background-image: url('https://i.pinimg.com/564x/a6/02/61/a602616ff602cb0539969b4f3e2d77b5.jpg');">
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
@@ -76,13 +74,15 @@
               <form method="POST">
                 {% csrf_token %}
                 <fieldset class="form-group">
-                    <legend class="border-buttom mb-4">Blog Post</legend>
-                    {{ form | crispy }}
+                    <legend class="border-buttom mb-4">Delete Post</legend>
+                    <h2>Sure You want to delete "{{object.title}}" ?</h2>
                 </fieldset>
                 <div class="form-group">
-                  <button type="submit"
-                    class="btn  btn-outline-info">Post</button>
+                  <button type="submit" class="btn  btn-outline-danger">yes, delete?</button>
                 </div>
+                <div class="form-group">
+                    <a class="btn  btn-outline-secondary" href="{% url 'blogger-detail' object.id %}">Cancel</a>
+                  </div>
               </form>
             </div>
           </div>
@@ -90,6 +90,7 @@
       </div>
     </div>
   </div>
+  
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
@@ -102,4 +103,5 @@
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
 </section>
+
 </html>
