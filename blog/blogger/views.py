@@ -17,7 +17,7 @@ class BlogListView(ListView):
     model = Blog
     template_name = 'blogger/home.html'
     context_object_name = 'posts'
-    paginate_by = 5
+    paginate_by = 3
 
 class BlogDetailView(DetailView):
     model = Blog
