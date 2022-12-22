@@ -30,9 +30,7 @@
   <link href="{% static 'assets/css/variables.css' %}" rel="stylesheet">
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
 </head>
-
 <content>
-
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -46,28 +44,10 @@
         <ul>
           <li><a href="{% url 'home' %}">Blog</a></li>
           {%if user.is_authenticated  %}
-          {% comment %} <li><a href="{% url 'single-post' %}">Single Post</a></li> {% endcomment %}
-          {% comment %} <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="search-result.html">Search Result</a></li>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li> {% endcomment %}
           <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'contact' %}">Contact</a></li>
           <li><a href="{% url 'profile' %}">Profile</a></li>
+          <li><a href="{% url 'blogger-create' %}">Create Post</a></li>
           <li><a href="{% url 'logout' %}">Logout</a></li>
           {% else %}
           <li><a href="{% url 'register' %}">Register</a></li>
@@ -319,7 +299,7 @@
         <div class="row justify-content-between">
           <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
             <div class="copyright">
-              © Copyright <strong><span>ZenBlog</span></strong>. All Rights Reserved
+              © <strong><span>Vevi</span></strong>. All Rights Reserved
             </div>
 
             <div class="credits">
