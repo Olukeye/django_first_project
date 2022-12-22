@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView,  DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User
 from .models import Blog
 
 
@@ -17,7 +18,19 @@ class BlogListView(ListView):
     model = Blog
     template_name = 'blogger/home.html'
     context_object_name = 'posts'
-    paginate_by = 3
+    paginate_by = 5
+
+
+class UserBlogListView(ListView):   #this get the auther's total blog posted
+    model = Blog
+    template_name = 'blogger/user_blogs.html'
+    context_object_name = 'posts'
+    paginate_by = 5
+    
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Blog.objects.filter(author=user)
+
 
 class BlogDetailView(DetailView):
     model = Blog
